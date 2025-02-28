@@ -1,2 +1,5 @@
+ARGS = 324 234 325 34 3 1
+
 all:
-	../push_swap 3 2 1 | ./checker 3 2 1
+	make -C ..
+	../push_swap $(ARGS) | ./checker $(ARGS)
