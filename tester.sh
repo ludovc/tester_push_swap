@@ -10,5 +10,11 @@ test() {
 }
 
 test ""
+set -x
+test "1 2"
+set +x
 test "2 1"
+test "2 1 3"
+test "2 4 5 3 1"
 test "324 234 325 34 3 1"
+test "2 4 5 3 1 32 324 23 80 81 35 54"
