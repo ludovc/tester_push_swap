@@ -1,18 +1,12 @@
 test() {
-	if [ -z "$1" ]; then
-		output=$(../push_swap 2>&1)
-		[ -z "$output" ] && echo OK || echo KO
-	else
-		args=$1
-		output=$(../push_swap $args 2>&1)
-		printf "%s\n" "$output" | ./checker $args
-	fi
+	args=$1
+	../push_swap $args >out
+	cat out | ./checker $args
+	rm out
 }
 
 test ""
-set -x
 test "1 2"
-set +x
 test "2 1"
 test "2 1 3"
 test "2 4 5 3 1"
