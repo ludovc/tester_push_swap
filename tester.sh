@@ -1,8 +1,15 @@
 test() {
-	args=$1
-	../push_swap $args >out
-	cat out | ./checker $args
-	rm out
+	if [ -z "$1" ]; then
+		../push_swap $1 >out
+		[ -z $(cat -e out) ] && echo OK || echo KO
+		rm out
+	else
+		../push_swap $1 >out
+		./checker $1 <out >out_checker
+		[ $(cat out_checker) = "OK" ] && echo OK || echo KO
+		rm out
+		rm out_checker
+	fi
 }
 
 test ""
