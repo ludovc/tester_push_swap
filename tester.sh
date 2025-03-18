@@ -6,7 +6,8 @@ test() {
 	else
 		../push_swap $1 >out
 		./checker $1 <out >out_checker
-		[ $(cat out_checker) = "OK" ] && echo OK || echo KO
+		num_moves=$(wc -l out | awk '{print $1}')
+		[ $(cat out_checker) = "OK" ] && echo OK \($num_moves\) || echo KO
 		rm out
 		rm out_checker
 	fi
