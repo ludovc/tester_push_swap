@@ -13,11 +13,14 @@ test() {
 	fi
 }
 
+echo 5 or under:
 test ""
 test "1 2"
 test "2 1"
 test "2 1 3"
 test "2 4 5 3 1"
+
+echo 6 to 99:
 test "324 234 325 34 3 1"
 test "2 4 5 3 1 32 324 23 80 81 35 54"
 
