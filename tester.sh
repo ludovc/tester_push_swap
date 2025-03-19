@@ -1,3 +1,11 @@
+test_invalid_param() {
+	param=$1
+
+	../push_swap $param >out 2>out_err
+	[ -z "$(cat out)" -a "$(cat out_err)" = "Error" ] && echo OK || echo KO
+	rm out out_err
+}
+
 test() {
 	if [ -z "$1" ]; then
 		../push_swap $1 >out
@@ -13,8 +21,15 @@ test() {
 	fi
 }
 
-echo 5 or under:
+echo no param:
 test ""
+
+echo invalid param:
+test_invalid_param "a"
+test_invalid_param "1 a"
+test_invalid_param "1 1"
+
+echo 5 or under:
 test "1 2"
 test "2 1"
 test "2 1 3"
