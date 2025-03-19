@@ -8,8 +8,8 @@ test_invalid_param() {
 
 test() {
 	if [ -z "$1" ]; then
-		../push_swap $1 >out
-		[ -z $(cat -e out) ] && echo OK || echo KO
+		../push_swap $1 >out 2>out_err
+		[ -z "$(cat out)" -a -z "$(cat out_err)" ] && echo OK || echo KO
 		rm out
 	else
 		../push_swap $1 >out
