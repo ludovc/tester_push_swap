@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void	combinations()
+void	combinations_2()
 {
 	int		a;
 	int		b;
@@ -23,5 +23,5 @@ int	main()
 	//printf("1 2\n");
 	//printf("2 1\n");
 
-	combinations();
+	combinations_2();
 }
