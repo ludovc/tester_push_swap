@@ -29,10 +29,23 @@ test_invalid_param "a"
 test_invalid_param "1 a"
 test_invalid_param "1 1"
 
-echo 5 or under:
+echo sort 2:
 test "1 2"
 test "2 1"
+
+echo sort 3:
+test "1 2 3"
+test "1 3 2"
 test "2 1 3"
+test "2 3 1"
+test "3 1 2"
+test "3 2 1"
+
+echo sort 4:
+test "1 2 3 4"
+test "1 2 4 3"
+
+echo sort 5:
 test "2 4 5 3 1"
 
 echo 6 to 99:
