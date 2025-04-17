@@ -29,6 +29,7 @@ test_invalid_param "a"
 test_invalid_param "1 a"
 test_invalid_param "1 1"
 test_invalid_param "2147483648"
+test_invalid_param "1000000000000000000000000000000000000000000000000000000000000000000"
 
 echo sort 2:
 test "1 2"
