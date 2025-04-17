@@ -1,0 +1,20 @@
+test() {
+	if [ -z "$1" ]; then
+		../push_swap $1 >out 2>out_err
+		[ -z "$(cat out)" -a -z "$(cat out_err)" ] && echo OK || echo KO
+		rm out
+	else
+		../push_swap $1 >out
+		./checker $1 <out >out_checker
+		num_moves=$(wc -l out | awk '{print $1}')
+		[ $(cat out_checker) = "OK" ] && echo OK \($num_moves\) || echo KO
+		rm out
+		rm out_checker
+	fi
+}
+
+rng_string() {
+	echo $(shuf -i 1-$1 | paste -sd ' ' -)
+}
+
+test "$(rng_string 10)"
