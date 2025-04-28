@@ -1,2 +1,2 @@
 all:
-	@sh tester.sh
+	@sh tester

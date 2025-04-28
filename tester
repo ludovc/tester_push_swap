@@ -1,3 +1,7 @@
+rng_string() {
+	echo $(shuf -i 1-$1 | paste -sd ' ' -)
+}
+
 test_invalid_param() {
 	param=$1
 
@@ -69,13 +73,92 @@ test "4 2 3 1"
 test "4 3 1 2"
 test "4 3 2 1"
 
+echo
 echo sort 5:
-test "2 4 5 3 1"
+test "$(rng_string 5)"
+test "$(rng_string 5)"
+test "$(rng_string 5)"
+test "$(rng_string 5)"
+test "$(rng_string 5)"
+test "$(rng_string 5)"
+test "$(rng_string 5)"
+test "$(rng_string 5)"
+test "$(rng_string 5)"
+test "$(rng_string 5)"
 
-echo 6 to 99:
-test "324 234 325 34 3 1"
-test "2 4 5 3 1 32 324 23 80 81 35 54"
+echo sort 6:
+test "$(rng_string 6)"
+test "$(rng_string 6)"
+test "$(rng_string 6)"
+test "$(rng_string 6)"
+test "$(rng_string 6)"
+test "$(rng_string 6)"
+test "$(rng_string 6)"
+test "$(rng_string 6)"
+test "$(rng_string 6)"
+test "$(rng_string 6)"
 
+echo sort 7:
+test "$(rng_string 7)"
+test "$(rng_string 7)"
+test "$(rng_string 7)"
+test "$(rng_string 7)"
+test "$(rng_string 7)"
+test "$(rng_string 7)"
+test "$(rng_string 7)"
+test "$(rng_string 7)"
+test "$(rng_string 7)"
+test "$(rng_string 7)"
+
+echo sort 8:
+test "$(rng_string 8)"
+test "$(rng_string 8)"
+test "$(rng_string 8)"
+test "$(rng_string 8)"
+test "$(rng_string 8)"
+test "$(rng_string 8)"
+test "$(rng_string 8)"
+test "$(rng_string 8)"
+test "$(rng_string 8)"
+test "$(rng_string 8)"
+
+echo sort 9:
+test "$(rng_string 9)"
+test "$(rng_string 9)"
+test "$(rng_string 9)"
+test "$(rng_string 9)"
+test "$(rng_string 9)"
+test "$(rng_string 9)"
+test "$(rng_string 9)"
+test "$(rng_string 9)"
+test "$(rng_string 9)"
+test "$(rng_string 9)"
+
+echo sort 10:
+test "$(rng_string 10)"
+test "$(rng_string 10)"
+test "$(rng_string 10)"
+test "$(rng_string 10)"
+test "$(rng_string 10)"
+test "$(rng_string 10)"
+test "$(rng_string 10)"
+test "$(rng_string 10)"
+test "$(rng_string 10)"
+test "$(rng_string 10)"
+
+echo sort 50:
+test "$(rng_string 50)"
+test "$(rng_string 50)"
+test "$(rng_string 50)"
+test "$(rng_string 50)"
+test "$(rng_string 50)"
+test "$(rng_string 50)"
+test "$(rng_string 50)"
+test "$(rng_string 50)"
+test "$(rng_string 50)"
+test "$(rng_string 50)"
+
+echo
 echo 100:
 test "83 14 30 13 52 41 29 93 56 90 42 89 48 94 80 54 81 100 59 70 37 11 35 40 15 99 8 68 76 50 95 20 7 69 33 47 78 75 4 57 74 87 88 84 64 31 58 39 66 53 1 25 79 9 55 44 46 34 92 6 43 22 97 24 45 62 82 16 3 32 18 51 98 71 28 21 60 67 2 73 19 85 23 49 36 65 38 91 72 96 77 86 10 5 27 63 26 17 12 61"
 test "14 86 93 53 85 57 37 64 32 60 74 54 27 38 3 89 10 8 2 70 15 79 22 62 46 59 35 36 16 34 61 95 50 42 99 75 78 82 68 91 96 1 43 47 19 63 76 18 56 13 11 29 92 7 31 67 73 24 39 100 41 20 12 5 98 26 58 77 88 51 80 17 65 69 33 87 49 52 44 9 30 23 45 25 94 71 81 66 83 6 40 84 72 21 97 4 28 48 90 55"
