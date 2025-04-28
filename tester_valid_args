@@ -1,0 +1,12 @@
+test_invalid_param() {
+	param=$1
+
+	../push_swap $param >out 2>out_err
+	[ -z "$(cat out)" -a "$(cat out_err)" = "Error" ] && echo OK || echo KO
+	rm out out_err
+}
+
+echo duplicates:
+test_invalid_param "1 1"
+test_invalid_param "1 2 1"
+test_invalid_param "2 1 1"
