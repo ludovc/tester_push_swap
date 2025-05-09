@@ -1,4 +1,4 @@
-test_invalid_param() {
+test_invalid_args() {
 	param=$1
 
 	../push_swap $param >out 2>out_err
@@ -6,7 +6,23 @@ test_invalid_param() {
 	rm out out_err
 }
 
+test_valid_args() {
+	param=$1
+
+	../push_swap $param >out 2>out_err
+	[ -z "$(cat out)" -a "$(cat out_err)" = "Error" ] && echo KO || echo OK
+	rm out out_err
+}
+
 echo duplicates:
-test_invalid_param "1 1"
-test_invalid_param "1 2 1"
-test_invalid_param "2 1 1"
+test_invalid_args "1 1"
+test_invalid_args "1 2 1"
+test_invalid_args "2 1 1"
+echo characters:
+test_invalid_args "a"
+test_invalid_args "+a"
+test_invalid_args "-a"
+test_invalid_args "++1"
+test_invalid_args "-+1"
+test_valid_args "-1"
+test_valid_args "+1"
